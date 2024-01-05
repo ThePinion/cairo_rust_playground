@@ -1,0 +1,13 @@
+[package]
+name = "bench"
+version = "0.1.0"
+edition = "2023_10"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest.html
+
+[dependencies]
+starknet = ">=2.4.0"
+alexandria_data_structures = { git = "https://github.com/keep-starknet-strange/alexandria", commmit = "01a7690dc25d19a086f525b8ce66aa505c8e7527" }
+alexandria_math = { git = "https://github.com/keep-starknet-strange/alexandria", commmit = "01a7690dc25d19a086f525b8ce66aa505c8e7527" }
+alexandria_numeric = { git = "https://github.com/keep-starknet-strange/alexandria", commmit = "01a7690dc25d19a086f525b8ce66aa505c8e7527" }
+alexandria_encoding = { git = "https://github.com/keep-starknet-strange/alexandria", commmit = "01a7690dc25d19a086f525b8ce66aa505c8e7527" }
