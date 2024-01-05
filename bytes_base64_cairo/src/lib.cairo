@@ -143,7 +143,7 @@ fn test_only_new_combined(){
 #[test]
 fn test_only_new_base64(){
     let bytes = 0x0169af1f6f99d35e0b80e0140235ec4a2041048868071a8654576223934726f5_felt252.bytes_be_reversed();
-    let new = base64url_encode(bytes);
+    let new = base64url_encode(bytes, base64_chars());
 }
 
 #[test]
@@ -152,8 +152,7 @@ fn test_only_experiment_base64(){
     let new = base64url_experiment(bytes);
 }
 
-fn base64url_encode(mut bytes: Array<u8>) -> Array<u8> {
-    let base64_chars = base64_chars();
+fn base64url_encode(mut bytes: Array<u8>, base64_chars: Array<u8>) -> Array<u8> {
     let mut result = array![];
     let mut p: u8 = 0;
     let c = bytes.len() % 3;

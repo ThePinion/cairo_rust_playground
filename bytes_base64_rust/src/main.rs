@@ -79,10 +79,19 @@ fn base_64_bits(value: &[u8]) -> Bits {
     Bits::new(&result, 6)
 }
 
+fn fill_with_zeros(slice: &[u8]) -> [u8; 32] {
+    let mut array = [0u8; 32]; 
+    let len = slice.len().min(32); 
+    array[32-len..].copy_from_slice(&slice[..len]); 
+    array 
+}
+
 fn main() {
-    for _ in 0..10 {
-        println!("{:?}", SigningKey::from_random().secret_scalar());
-    }
+    let felt = FieldElement::from_bytes_be(&fill_with_zeros(&vec![255_u8, 239_u8][..])).unwrap();
+    println!("{}", felt.to_string());
+    // for _ in 0..10 {
+    //     println!("{:?}", SigningKey::from_random().secret_scalar());
+    // }
     // let felt = felt!("0x0169af1f6f99d35e0b80e0140235ec4a2041048868071a8654576223934726f5");
     // let bytes = &felt.to_bytes_be();
     // let be_bits = Bits::new(bytes, 8);
